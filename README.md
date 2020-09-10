@@ -1,3 +1,13 @@
+## Requirements:
+Need one set of scripts / configuration using Sphinx to generate pretty documentation in an automatable manner for:
+* standard .rst files that will be human written for tutorials, best practices etc.
+* python source code
+* click - for CLI
+
+## Action items:
+* Change one or more modules in this package to mimic some click related documentation
+* Include click-sphinx to generate documentation for click stuff
+
 # Sphinx-Autosummary-Recursion
 
 This repo contains a Python package demonstrating the new

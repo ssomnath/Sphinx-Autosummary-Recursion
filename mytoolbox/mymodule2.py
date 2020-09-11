@@ -11,6 +11,34 @@ class myClass2(myClass1):
     pass
 
 
+__global_context_options = [
+    click.option('-X', '--context', required=False, type=str,
+                 help="User or project ID for command alias context. See "
+                      "'alias' command help for more information."),
+    ]
+
+
+# Decorator to add context option to click commands
+def _global_context_options(func):
+    for option in __global_context_options:
+        func = option(func)
+    return func
+
+
+__global_output_options = [
+    click.option('-v', '--verbosity', type=click.Choice(['0', '1', '2']),
+                 callback=_set_verbosity_cb, expose_value=False,
+                 help='Verbosity level of output'),
+    ]
+
+
+# Decorator to add output options to click commands
+def _global_output_options(func):
+    for option in reversed(__global_output_options):
+        func = option(func)
+    return func
+
+
 @_data.command(name='create')
 @click.argument("title", required=True)
 @click.option("-a", "--alias", type=str, required=False,

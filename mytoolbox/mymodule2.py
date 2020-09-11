@@ -6,11 +6,6 @@ import click
 import click.decorators
 
 
-class myClass2(myClass1):
-    """Derived class showing members from base class."""
-    pass
-
-
 __global_context_options = [
     click.option('-X', '--context', required=False, type=str,
                  help="User or project ID for command alias context. See "
@@ -135,4 +130,8 @@ def _dataUpdate(data_id, title, alias, description, keywords, raw_data_file,
     The raw-data-file option is only supported in interactive mode and is
     provided as a convenience to avoid a separate dataPut() call.
     """
+    pass
+
+class myClass2(myClass1):
+    """Derived class showing members from base class."""
     pass
